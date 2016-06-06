@@ -22,7 +22,7 @@ LOG() {
 
 err=0
 for i in $NATURAL_EARTH; do
-  case "$i" in)
+  case "$i" in
     "#"*)
       continue
       ;;
@@ -37,7 +37,7 @@ for i in $NATURAL_EARTH; do
   fi
 done
 for i in $NATURAL_EARTH; do
-  case "$i" in)
+  case "$i" in
     "#"*)
       continue
       ;;
