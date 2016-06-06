@@ -47,7 +47,7 @@ for i in $NATURAL_EARTH; do
   shp=`echo "$i" | cut -f 3 -d :`
   file=`basename "$url"`
   LOG "importing natural earth data: $table"
-  "$dir/ogr2pgsql" "$table" "/vsizip/${TMPDIR}/${file}${shp:+/$shp}" 2>&1
+  "$dir/ogr2pgsql" "/vsizip/${TMPDIR}/${file}${shp:+/$shp}" "$table" 2>&1
   if [ $? != 0 ]; then
     LOG "FAILURE: error importing natural earth data: $table"
     err=1
