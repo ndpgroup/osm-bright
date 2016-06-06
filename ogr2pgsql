@@ -1,0 +1,22 @@
+#!/bin/sh
+
+src="$1"
+table="$2"
+database="$3"
+
+ogr2ogr \
+  --config OGR_ENABLE_PARTIAL_REPROJECTION TRUE \
+  --config SHAPE_ENCODING WINDOWS-1252 \
+  --config PG_USE_COPY YES \
+  -nln "$table" \
+  -t_srs EPSG:3857 \
+  -lco ENCODING=UTF-8 \
+  -nlt PROMOTE_TO_MULTI \
+  -lco POSTGIS_VERSION=2.2 \
+  -lco GEOMETRY_NAME=geometry \
+  -lco SRID=3857 \
+  -lco PRECISION=NO \
+  -clipsrc -180 -85.05112878 180 85.05112878 \
+  -segmentize 1 \
+  -skipfailures \
+  -f PGDump /vsistdout/ "$src" | psql -q ${database:+-d "$database"} -f -

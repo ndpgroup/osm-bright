@@ -160,12 +160,81 @@ Map { background-color: @water; }
 /* ================================================================== */
 
 
-#admin[admin_level='2'][zoom>1] {
+#ne_10m_admin_0_boundary_lines_land {
+  ::outline {
+    line-width: 0;
+  }
+  line-color: @admin0_4;
+  line-width: 0.5;
+
+  [zoom=4] {
+    line-color: @admin0_4;
+  }
+
+  [zoom>=5] {
+    line-width: 0.5;
+    line-color: @admin0_5;
+  }
+
+  [zoom=6] {
+    ::outline {
+      line-width: 8;
+      line-color: @admin0_6;
+      line-opacity: 0.5;
+    }
+
+    line-width: 0.5;
+    line-color: @admin0_5;
+  }
+
+  [zoom>=7][zoom<=9] {
+    ::outline {
+      line-width: 8;
+      line-color: @admin0_6;
+      line-opacity: 0.5;
+    }
+
+    line-color: @admin0_7;
+    line-width: 1.5;
+  }
+}
+
+#admin[admin_level='2'][zoom>9] {
   line-color:@admin_2;
   line-width:0.5;
   [zoom=2] { line-opacity: 0.25; }
   [zoom=3] { line-opacity: 0.3; }
   [zoom=4] { line-opacity: 0.4; }
+}
+
+#ne_10m_admin_1_states_provinces_lines {
+  [zoom=2],
+  [zoom=3][scalerank<4],
+  [zoom=4][scalerank<5],
+  [zoom=5][scalerank<5],
+  [zoom=6][scalerank<5],
+  [zoom=7][scalerank<6],
+  [zoom=8][scalerank<7],
+  [zoom>8]
+  {
+    eraser/line-color: @land;
+    eraser/line-width: 0.5;
+    line-width: 0.5;
+    line-color: @admin1_lowzoom;
+    [zoom>=6] {
+      line-color: @admin1_highzoom;
+    }
+
+    [zoom>=7] {
+      eraser/line-width: 1;
+      line-width: 1;
+      line-dasharray: 2,2;
+    }
+    [zoom>=9] {
+      eraser/line-width: 2;
+      line-width: 2;
+    }
+  }
 }
 
 /* ================================================================== */

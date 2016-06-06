@@ -26,6 +26,110 @@
       "name": "land-high", 
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
     }, 
+
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_rivers_lake_centerlines_scale_rank",
+      "id": "ne_10m_rivers_lake_centerlines_scale_rank",
+      "status": "off",
+      "properties": {
+        "minzoom": 4,
+        "maxzoom": 8
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_rivers_lake_centerlines_scale_rank",
+        "encoding": "ISO-8859-1"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_lakes",
+      "id": "ne_10m_lakes",
+      "status": "off",
+      "properties": {
+        "minzoom": 5,
+        "maxzoom": 8
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_lakes",
+        "encoding": "ISO-8859-1"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_admin_0_boundary_lines_land",
+      "id": "ne_10m_admin_0_boundary_lines_land",
+      "class": "country-boundary-10m",
+      "properties": {
+        "minzoom": 2,
+        "maxzoom": 9
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_admin_0_boundary_lines_land"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_admin_1_states_provinces_lines",
+      "id": "ne_10m_admin_1_states_provinces_lines",
+      "properties": {
+        "minzoom": 2,
+        "maxzoom": 9
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_admin_1_states_provinces_lines"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne-roads",
+      "id": "ne-roads",
+      "status": "off",
+      "properties": {
+        "minzoom": 5,
+        "maxzoom": 8,
+        "cache-features": "on"
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_roads"
+      }
+    },
+
     {
       "Datasource": {
         "dbname": "osm", 
@@ -423,6 +527,69 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
       "srs-name": "900913"
     }, 
+
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_admin_0_countries_lakes",
+      "id": "ne_10m_admin_0_countries_lakes",
+      "status": "off",
+      "properties": {
+        "minzoom": 2,
+        "maxzoom": 9
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_admin_0_countries_lakes"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_admin_1_label_points",
+      "id": "ne_10m_admin_1_label_points",
+      "status": "off",
+      "properties": {
+        "minzoom": 2,
+        "maxzoom": 9
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_admin_1_label_points"
+      }
+    },
+    {
+      "srs-name": "3857",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "name": "ne_10m_rivers_lake_centerlines_scale_rank_labels",
+      "id": "ne_10m_rivers_lake_centerlines_scale_rank_labels",
+      "status": "off",
+      "properties": {
+        "minzoom": 4,
+        "maxzoom": 8
+      },
+      "Datasource": {
+        "type": "postgis",
+        "dbname": "osm",
+        "geometry_field": "geometry",
+        "srid": 3857,
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "ne_10m_rivers_lake_centerlines_scale_rank",
+        "encoding": "ISO-8859-1"
+      }
+    },
+
     {
       "Datasource": {
         "dbname": "osm", 

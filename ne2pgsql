@@ -1,0 +1,56 @@
+#!/bin/sh
+
+NATURAL_EARTH="
+  #ne_10m_rivers_lake_centerlines_scale_rank:10m/physical/ne_10m_rivers_lake_centerlines_scale_rank.zip
+  #ne_10m_admin_0_countries_lakes:10m/cultural/ne_10m_admin_0_countries_lakes.zip
+  #ne_10m_admin_0_boundary_lines_map_units:10m/cultural/ne_10m_admin_0_boundary_lines_map_units.zip
+  #ne_10m_roads:10m/cultural/ne_10m_roads.zip
+  #ne_10m_lakes:10m/physical/ne_10m_lakes.zip
+  ne_10m_admin_0_boundary_lines_land:10m/cultural/ne_10m_admin_0_boundary_lines_land.zip
+  #ne_10m_admin_1_label_points:10m/cultural/ne_10m_admin_1_label_points.zip
+  ne_10m_admin_1_states_provinces_lines:10m/cultural/ne_10m_admin_1_states_provinces_lines.zip:ne_10m_admin_1_states_provinces_lines.shp
+"
+
+dir=`dirname "$0"`
+dir="${dir:-.}"
+
+LOG() {
+  ts=`date '+[%Y-%m-%dT%H:%M:%S%z]'`
+  echo "$ts [ne2pgsql]" "$@" >&2 || true
+  echo "$ts [ne2pgsql]" "$@" || true
+}
+
+err=0
+for i in $NATURAL_EARTH; do
+  case "$i" in)
+    "#"*)
+      continue
+      ;;
+  esac
+  url=`echo "$i" | cut -f 2 -d :`
+  LOG "downloading natural earth data: $url"
+  wget -N --no-verbose --progress=dot:mega --show-progress -P "${TMPDIR}" \
+    "http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/$url" 2>&1
+  if [ $? != 0 ]; then
+    LOG "FAILURE: error downloading natural earth data: $url"
+    err=1
+  fi
+done
+for i in $NATURAL_EARTH; do
+  case "$i" in)
+    "#"*)
+      continue
+      ;;
+  esac
+  table=`echo "$i" | cut -f 1 -d :`
+  url=`echo "$i" | cut -f 2 -d :`
+  shp=`echo "$i" | cut -f 3 -d :`
+  file=`basename "$url"`
+  LOG "importing natural earth data: $table"
+  "$dir/ogr2pgsql" "$table" "/vsizip/${TMPDIR}/${file}${shp:+/$shp}" 2>&1
+  if [ $? != 0 ]; then
+    LOG "FAILURE: error importing natural earth data: $table"
+    err=1
+  fi
+done
+exit $err
