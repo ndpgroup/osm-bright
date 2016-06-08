@@ -178,7 +178,7 @@ Map { background-color: @water; }
 
   [zoom=6] {
     ::outline {
-      line-width: 8;
+      line-width: 3;
       line-color: @admin0_6;
       line-opacity: 0.5;
     }
@@ -189,7 +189,7 @@ Map { background-color: @water; }
 
   [zoom>=7][zoom<=9] {
     ::outline {
-      line-width: 8;
+      line-width: 3;
       line-color: @admin0_6;
       line-opacity: 0.5;
     }
